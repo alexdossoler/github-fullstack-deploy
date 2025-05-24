@@ -176,8 +176,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     urgent: urgentInput.checked
                 };
                 
+                // Configure API base URL - localhost for development, Render for production
+                const API_BASE = window.location.hostname.includes('localhost')
+                               ? 'http://localhost:10000'
+                               : 'https://handyman-services.onrender.com';
+                
                 // Send AJAX request to server
-                fetch('/api/contact', {
+                fetch(`${API_BASE}/api/contact`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

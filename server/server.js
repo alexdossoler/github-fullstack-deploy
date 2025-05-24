@@ -66,7 +66,7 @@ const Contact = mongoose.model('Contact', contactSchema);
 // Configure email transporter with error handling
 let transporter;
 try {
-    transporter = nodemailer.createTransport({
+    transporter = nodemailer.createTransporter({
         host: process.env.EMAIL_HOST || 'smtp.example.com',
         port: process.env.EMAIL_PORT || 587,
         secure: process.env.EMAIL_SECURE === 'true',
@@ -89,6 +89,11 @@ try {
     console.error('Failed to create email transporter:', error);
     console.log('Email functionality will be disabled.');
 }
+
+// Redirect root to frontend
+app.get('/', (_req, res) => { 
+    res.redirect('https://alexdossoler.github.io/github-fullstack-deploy/'); 
+});
 
 // API Routes
 

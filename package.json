@@ -1,0 +1,35 @@
+{
+  "name": "handyman-services",
+  "version": "1.0.0",
+  "description": "Professional handyman services website with Node.js backend",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "cd server && node server.js",
+    "dev": "cd server && nodemon server.js",
+    "install-server": "cd server && npm install",
+    "build": "echo 'No build step required for static files'",
+    "test": "cd server && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/handyman-services.git"
+  },
+  "keywords": [
+    "handyman",
+    "services",
+    "website",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yourusername/handyman-services/issues"
+  },
+  "homepage": "https://github.com/yourusername/handyman-services#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}

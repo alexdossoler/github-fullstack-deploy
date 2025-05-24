@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Handyman Services</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* About Page Specific Styles */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--light-text);
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .about-content {
+            padding: 30px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .about-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            min-height: 400px;
+            background-color: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .mission-values {
+            margin-bottom: 60px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .value-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .team-section {
+            margin-bottom: 60px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-photo {
+            height: 250px;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .team-photo i {
+            font-size: 5rem;
+            color: var(--primary-color);
+        }
+        
+        .team-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .team-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .team-info p.position {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .team-info p.bio {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .team-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .team-social a:hover {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+        
+        .testimonials {
+            margin-bottom: 60px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: '\f10d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--primary-light);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            opacity: 0.3;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .testimonial-author-image i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .testimonial-author-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author-info p {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-rating {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: 1;
+                min-height: 300px;
+            }
+            
+            .about-content {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../images/logo.png" alt="Handyman Services Logo" id="logo-placeholder">
+                <div class="logo-text">
+                    <h1>Handyman Services</h1>
+                    <p>Your Trusted Handyman for Every Job</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title Section -->
+    <section class="page-title" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: var(--light-text); padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Learn more about our company, our team, and our commitment to quality</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <!-- Company Story -->
+            <div class="about-container">
+                <div class="about-content">
+                    <h3>Our Story</h3>
+                    <p>Founded in 2015, Handyman Services began with a simple mission: to provide reliable, high-quality handyman services to homeowners in our local community. What started as a one-person operation has grown into a team of skilled professionals dedicated to solving your home repair and improvement needs.</p>
+                    <p>Our founder, Mike Johnson, spent over 20 years working in various trades before deciding to start his own handyman business. Frustrated by the lack of reliable, honest service providers in the area, he set out to create a company that homeowners could truly trust.</p>
+                    <p>Today, we're proud to be the go-to handyman service for hundreds of satisfied customers. We've built our reputation on quality workmanship, fair pricing, and exceptional customer service. No job is too small, and we approach each project with the same level of care and attention to detail.</p>
+                    <p>As we continue to grow, we remain committed to our core values and to the community we serve. We're not just here to fix things – we're here to make your life easier and your home more comfortable.</p>
+                </div>
+                <div class="about-image">
+                    <img src="../images/mascot.png" alt="Handyman Services Team">
+                </div>
+            </div>
+            
+            <!-- Mission and Values -->
+            <div class="mission-values">
+                <h2 class="section-title">Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Quality</h3>
+                        <p>We take pride in our work and never cut corners. Every job is completed to the highest standards, using quality materials and proven techniques.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Integrity</h3>
+                        <p>We believe in honest communication, transparent pricing, and doing what we say we'll do. Your trust is our most valuable asset.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Service</h3>
+                        <p>We're committed to providing exceptional customer service from the first phone call to the final walkthrough. Your satisfaction is our top priority.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Expertise</h3>
+                        <p>Our team consists of skilled professionals with years of experience in their respective trades. We're continuously learning and improving our skills.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Section -->
+            <div class="team-section">
+                <h2 class="section-title">Meet Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Mike Johnson</h3>
+                            <p class="position">Founder & Lead Handyman</p>
+                            <p class="bio">With over 25 years of experience in home repairs and improvements, Mike leads our team with expertise and dedication to quality.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Sarah Martinez</h3>
+                            <p class="position">Office Manager</p>
+                            <p class="bio">Sarah keeps our operations running smoothly, handling scheduling, customer service, and making sure every client receives prompt attention.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>David Chen</h3>
+                            <p class="position">Electrical Specialist</p>
+                            <p class="bio">David is our electrical expert with 15 years of experience. He handles all electrical repairs and installations with precision and safety.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3>Robert Wilson</h3>
+                            <p class="position">Plumbing Specialist</p>
+                            <p class="bio">Robert brings 12 years of plumbing expertise to our team, solving everything from simple leaks to complex installations.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonials Section -->
+            <div class="testimonials">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-content">"I've used Handyman Services for several projects around my home, and they've always exceeded my expectations. Professional, punctual, and the quality of work is outstanding. Highly recommend!"</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-image">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="testimonial-author-info">
+                                <h4>Jennifer L.</h4>
+                                <p>Homeowner</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-content">"Mike and his team installed a new dishwasher and fixed some electrical issues in my kitchen. They were efficient, clean, and very knowledgeable. Fair pricing and great service!"</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-image">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="testimonial-author-info">
+                                <h4>Thomas R.</h4>
+                                <p>Local Resident</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-content">"I needed several pieces of furniture assembled quickly after moving. Handyman Services came the next day and did an amazing job. Everything was put together perfectly and they even cleaned up afterward."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-image">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="testimonial-author-info">
+                                <h4>Maria G.</h4>
+                                <p>New Homeowner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Work With Us?</h2>
+                <p>Contact us today to discuss your home repair or improvement project.</p>
+                <div class="cta-buttons">
+                    <a href="tel:8647433178" class="btn btn-primary"><i class="fas fa-phone"></i> Call: (864) 743-3178</a>
+                    <a href="contact.html" class="btn btn-secondary"><i class="fas fa-envelope"></i> Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../images/logo.png" alt="Handyman Services Logo" id="footer-logo-placeholder">
+                    <h3>Handyman Services</h3>
+                    <p>Your Trusted Handyman for Every Job</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li>Plumbing Repairs</li>
+                        <li>Electrical Repairs</li>
+                        <li>Appliance Installation</li>
+                        <li>Furniture Assembly</li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> (864) 743-3178</p>
+                    <p><i class="fas fa-envelope"></i> info@handymanservices.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Serving the local area</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Handyman Services. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

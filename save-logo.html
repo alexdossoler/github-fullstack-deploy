@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Handyman Logo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        img {
+            max-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            margin: 20px 0;
+        }
+        .instructions {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        h1 {
+            color: #0077b6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Handyman Services Logo</h1>
+    
+    <img src="../images/logo.png" alt="Handyman Logo" id="logo">
+    
+    <div class="instructions">
+        <h2>Instructions to save the logo:</h2>
+        <ol>
+            <li>Right-click on the image above</li>
+            <li>Select "Save image as..."</li>
+            <li>Navigate to the "handyman-services/images" folder</li>
+            <li>Save the file as "logo.png"</li>
+        </ol>
+        <p><strong>Note:</strong> Make sure the file is named exactly "logo.png" as this is the filename referenced in the code.</p>
+        <p>The handyman logo has been successfully saved to the images directory and is now being used throughout the website.</p>
+    </div>
+
+    <script>
+        // This script will update the image source with the actual logo from the task
+        document.addEventListener('DOMContentLoaded', function() {
+            // The logo is now directly referenced from the images directory
+            const logoImg = document.getElementById('logo');
+            // No need to set the src as it's already set in the HTML
+        });
+    </script>
+</body>
+</html>

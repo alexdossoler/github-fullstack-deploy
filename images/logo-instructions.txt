@@ -1,0 +1,14 @@
+HANDYMAN SERVICES LOGO INSTRUCTIONS
+
+To save the handyman logo image:
+
+1. Open the save-logo.html file in this directory in a web browser
+2. Right-click on the displayed logo image
+3. Select "Save image as..."
+4. Save the file as "logo.png" in this directory (handyman-services/images/)
+
+The logo image is already referenced in the website code, so once you save it as logo.png, 
+the website will display the proper logo throughout all pages.
+
+Note: The logo should be the handyman character with blue cap and overalls giving a thumbs up
+inside a blue circular border.

@@ -1,0 +1,79 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'npm'
+        cache-dependency-path: server/package-lock.json
+    
+    - name: Install dependencies
+      run: |
+        cd server
+        npm ci
+    
+    - name: Run tests
+      run: |
+        cd server
+        npm test --if-present
+    
+    - name: Check for security vulnerabilities
+      run: |
+        cd server
+        npm audit --audit-level moderate
+
+  deploy-render:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+    - name: Deploy to Render
+      uses: johnbeynon/render-deploy-action@v0.0.8
+      with:
+        service-id: ${{ secrets.RENDER_SERVICE_ID }}
+        api-key: ${{ secrets.RENDER_API_KEY }}
+
+  deploy-pages:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
+    
+    - name: Build static site
+      run: |
+        mkdir -p _site
+        cp index.html _site/
+        cp -r css _site/
+        cp -r js _site/
+        cp -r images _site/
+        cp -r pages _site/
+    
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+    
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2

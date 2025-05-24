@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Handyman Services</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--light-text);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            padding: 30px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info p i {
+            margin-right: 10px;
+            color: var(--primary-color);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .contact-info .social-icons {
+            margin-top: 30px;
+        }
+        
+        .contact-form {
+            padding: 30px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-group .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .form-group .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .error-message {
+            color: var(--danger-color);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .success-message {
+            background-color: var(--success-color);
+            color: var(--light-text);
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        .error-banner {
+            background-color: var(--danger-color);
+            color: var(--light-text);
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+        }
+        
+        .error-banner i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+        
+        .error-banner p {
+            flex: 1;
+            margin: 0;
+        }
+        
+        .error-banner .close-btn {
+            background: none;
+            border: none;
+            color: var(--light-text);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0;
+            margin-left: 10px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .error-banner .close-btn:hover {
+            opacity: 1;
+        }
+        
+        .map-container {
+            margin-top: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 400px;
+            background-color: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+        }
+        
+        .map-placeholder {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .map-placeholder i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                order: 2;
+            }
+            
+            .contact-form {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../images/1103db117d4ca57c477ca6bdf55b921d.png" alt="Handyman Services Logo" id="logo-placeholder">
+                <div class="logo-text">
+                    <h1>Handyman Services</h1>
+                    <p>Your Trusted Handyman for Every Job</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title Section -->
+    <section class="page-title" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: var(--light-text); padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team for all your handyman needs</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="Your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Your phone number (optional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="plumbing">Plumbing Repairs</option>
+                                <option value="electrical">Electrical Repairs</option>
+                                <option value="appliance">Appliance Installation</option>
+                                <option value="furniture">Furniture Assembly</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Describe your project or issue" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="urgent" name="urgent">
+                                <label for="urgent">This is an urgent request</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-phone"></i> (864) 743-3178</p>
+                    <p><i class="fas fa-envelope"></i> info@handymanservices.com</p>
+                    <p><i class="fas fa-clock"></i> Monday - Friday: 8:00 AM - 6:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Saturday: 9:00 AM - 4:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Serving the local area</p>
+                    
+                    <h3 style="margin-top: 30px;">Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Service Area Map</h3>
+                    <p>We serve the entire local area and surrounding communities.</p>
+                </div>
+                <!-- In a real implementation, you would include a Google Maps or other map service here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need Immediate Assistance?</h2>
+                <p>Call us directly for emergency handyman services or urgent repairs.</p>
+                <div class="cta-buttons">
+                    <a href="tel:8647433178" class="btn btn-primary"><i class="fas fa-phone"></i> Call: (864) 743-3178</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../images/logo.png" alt="Handyman Services Logo" id="footer-logo-placeholder">
+                    <h3>Handyman Services</h3>
+                    <p>Your Trusted Handyman for Every Job</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li>Plumbing Repairs</li>
+                        <li>Electrical Repairs</li>
+                        <li>Appliance Installation</li>
+                        <li>Furniture Assembly</li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> (864) 743-3178</p>
+                    <p><i class="fas fa-envelope"></i> info@handymanservices.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Serving the local area</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Handyman Services. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

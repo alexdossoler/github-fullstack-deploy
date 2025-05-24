@@ -16,8 +16,22 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors());
+// Middleware - Configure CORS for frontend-backend integration
+const corsOptions = {
+    origin: [
+        'http://localhost:3000',
+        'http://localhost:8080',
+        'http://127.0.0.1:3000',
+        'http://127.0.0.1:8080',
+        /\.github\.io$/,  // Allow GitHub Pages domains
+        /\.netlify\.app$/,  // Allow Netlify domains
+        /\.vercel\.app$/,   // Allow Vercel domains
+    ],
+    credentials: true,
+    optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.static('../')); // Serve static files from parent directory
 app.use('/server/admin', express.static('./admin')); // Serve admin static files

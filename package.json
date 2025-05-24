@@ -4,11 +4,10 @@
   "description": "Professional handyman services website with Node.js backend",
   "main": "server/server.js",
   "scripts": {
-    "start": "cd server && node server.js",
-    "dev": "cd server && nodemon server.js",
-    "install-server": "cd server && npm install",
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
     "build": "echo 'No build step required for static files'",
-    "test": "cd server && npm test"
+    "test": "echo 'No tests specified'"
   },
   "repository": {
     "type": "git",
@@ -22,14 +21,26 @@
     "express",
     "mongodb"
   ],
-  "author": "Your Name",
+  "author": "Handyman Services",
   "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "mongoose": "^7.8.7",
+    "nodemailer": "^6.10.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  },
   "bugs": {
     "url": "https://github.com/yourusername/handyman-services/issues"
   },
-  "homepage": "https://github.com/yourusername/handyman-services#readme",
-  "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
-  }
+  "homepage": "https://github.com/yourusername/handyman-services#readme"
 }
